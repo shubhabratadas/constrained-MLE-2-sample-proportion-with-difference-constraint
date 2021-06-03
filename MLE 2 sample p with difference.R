@@ -53,6 +53,9 @@ p2_mle_delta <- function (x1,n1,x2,n2,delta) {
     else if ( (x1 - n1 == 0) & (x2 > 0) & (x2 -  n2 *(1-delta)  + n1 * delta * (1- delta)  >= 0  ) ) { mle <- 1- delta }	
     
     else if ( (x1 == 0) & (x2 == 0) ) { mle <- 0 }  	
+    
+    else if ( (x1 == 0) & (x2 == n2) ) { mle <- ( 1- delta)* n2/(n1+n2)} 
+    
     else if ( dlogL(U) >= 0 ) 	{ mle <-  1- delta}
     else if ( dlogL(L) <=  0 )	{  mle <- 0}
     
